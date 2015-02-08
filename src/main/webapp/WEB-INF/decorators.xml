@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorator">
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+   <excludes>
+        <!-- <pattern>/admin/login.html</pattern> -->
+    </excludes>
+
+    <decorator name="admin" page="panzi.jsp">
+    	<!-- <pattern>/admin/*</pattern>  -->
+    </decorator>
+    <decorator name="panzi" page="panzi.jsp"/>
+
+</decorators>
