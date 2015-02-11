@@ -85,6 +85,7 @@
     <!-- pre load bg imgs -->
     <script type="text/javascript">
         $(function () {
+        	 /* $("html").css("background-image", "url(${ctx}/web-resource/img/bgs/11.jpg)"); */
             var $btns = $(".bg-switch .bg");
             $btns.click(function (e) {
                 e.preventDefault();
