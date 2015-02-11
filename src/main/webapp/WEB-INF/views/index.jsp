@@ -7,11 +7,10 @@
 	<meta name="keywords" content=""/>
 	<meta name="description" content=""/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	
     <!-- bootstrap -->
     <link href="${ctx}/web-resource/css/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="${ctx}/web-resource/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
 
     <!-- libraries -->
     <link href="${ctx}/web-resource/css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
@@ -40,10 +39,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img src="${ctx}/web-resource/img/logo.png"></a>
+            <a class="navbar-brand" href="#">
+            	东莞盘子女人后台管理系统<%-- <img src="${ctx}/web-resource/img/logo.png">--%>
+            </a> 
         </div>
-        <ul class="nav navbar-nav pull-right hidden-xs">
-            <li class="hidden-xs hidden-sm">
+       <ul class="nav navbar-nav pull-right hidden-xs">
+           <%--   <li class="hidden-xs hidden-sm">
                 <input class="search" type="text" />
             </li>
             <li class="notification-dropdown hidden-xs hidden-sm">
@@ -129,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --%>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
                  		${backSession.username}
@@ -237,128 +238,8 @@
             </a>
         </div>
 
-        <!-- upper main stats -->
-        <div id="main-stats">
-            <div class="row stats-row">
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">2457</span>
-                        访问
-                    </div>
-                    <span class="date">今天</span>
-                </div>
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">3240</span>
-                        用户
-                    </div>
-                    <span class="date">2013年11月</span>
-                </div>
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">322</span>
-                        订单
-                    </div>
-                    <span class="date">本周</span>
-                </div>
-                <div class="col-md-3 col-sm-3 stat last">
-                    <div class="data">
-                        <span class="number">$2,340</span>
-                        销售金额
-                    </div>
-                    <span class="date">最近30天</span>
-                </div>
-            </div>
-        </div>
-        <!-- end upper main stats -->
 
         <div id="pad-wrapper">
-
-            <!-- statistics chart built with jQuery Flot -->
-            <div class="row chart">
-                <div class="col-md-12">
-                    <h4 class="clearfix">
-                        Statistics
-                         <div class="btn-group pull-right">
-                            <button class="glow left">日</button>
-                            <button class="glow middle active">月</button>
-                            <button class="glow right">年</button>
-                        </div>
-                    </h4>
-                </div>
-                <div class="col-md-12">
-                    <div id="statsChart"></div>
-                </div>
-            </div>
-            <!-- end statistics chart -->
-
-            <!-- UI Elements section -->
-            <div class="row section ui-elements">
-                <div class="col-md-12">
-                    <h4>UI Elements</h4>
-                </div>                
-                <div class="col-md-5 knobs">
-                    <div class="knob-wrapper">
-                        <input type="text" value="50" class="knob" data-thickness=".3" data-inputColor="#333" data-fgColor="#30a1ec" data-bgColor="#d4ecfd" data-width="150">
-                        <div class="info">
-                            <div class="param">
-                                <span class="line blue"></span>
-                                Active users
-                            </div>
-                        </div>
-                    </div>
-                    <div class="knob-wrapper">
-                        <input type="text" value="75" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#3d88ba" data-bgColor="#d4ecfd" data-width="150">
-                        <div class="info">
-                            <div class="param">
-                                <span class="line blue"></span>
-                                % disk space usage
-                            </div>
-                        </div>
-                    </div>                        
-                </div>
-                <div class="col-md-6 showcase">
-                    <div class="ui-sliders">
-                        <div class="slider slider-sample1 vertical-handler"></div>
-                        <div class="slider slider-sample2"></div>
-                        <div class="slider slider-sample3"></div>
-                    </div>
-                    <div class="ui-group">
-                        <a class="btn-flat inverse">Large Button</a>
-                        <a class="btn-flat gray">Large Button</a>
-                        <a class="btn-flat default">Large Button</a>
-                        <a class="btn-flat primary">Large Button</a>
-                    </div>                        
-
-                    <div class="ui-group">
-                        <a class="btn-flat icon">
-                            <i class="tool"></i> Icon button
-                        </a>
-                        <a class="btn-glow small inverse">
-                            <i class="shuffle"></i>
-                        </a>
-                        <a class="btn-glow small primary">
-                            <i class="setting"></i>
-                        </a>
-                        <a class="btn-glow small default">
-                            <i class="attach"></i>
-                        </a>
-                        <div class="ui-select">
-                            <select>
-                                <option selected>Dropdown</option>
-                                <option>Custom selects</option>
-                                <option>Pure css styles</option>
-                            </select>
-                        </div>
-
-                        <div class="btn-group">
-                            <button class="glow left">LEFT</button>
-                            <button class="glow right">RIGHT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end UI elements section -->
 
             <!-- table sample -->
             <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
@@ -604,7 +485,7 @@
                     }
                  });
 
-            function showTooltip(x, y, contents) {
+/*             function showTooltip(x, y, contents) {
                 $('<div id="tooltip">' + contents + '</div>').css( {
                     position: 'absolute',
                     display: 'none',
@@ -617,8 +498,8 @@
                     opacity: 0.80
                 }).appendTo("body").fadeIn(200);
             }
-
-            var previousPoint = null;
+ */
+          /*   var previousPoint = null;
             $("#statsChart").bind("plothover", function (event, pos, item) {
                 if (item) {
                     if (previousPoint != item.dataIndex) {
@@ -638,8 +519,8 @@
                     $("#tooltip").remove();
                     previousPoint = null;
                 }
-            });
-        });
+            });*/
+        }); 
     </script>
 	</body>
 </html>

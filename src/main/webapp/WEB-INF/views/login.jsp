@@ -52,9 +52,6 @@
 
 
     <div class="login-wrapper">
-        <a href="${ctx}/index.html">
-            <img class="logo" src="${ctx}/web-resource/img/logo-white.png">
-        </a>
 
 	<form id="loginForm" method="post" action="${ctx}/admin/loginValidate.html">
         <div class="box">
@@ -85,7 +82,7 @@
     <!-- pre load bg imgs -->
     <script type="text/javascript">
         $(function () {
-        	 /* $("html").css("background-image", "url(${ctx}/web-resource/img/bgs/11.jpg)"); */
+        	 $("html").css("background-image", "url(${ctx}/web-resource/img/bgs/11.jpg)");
             var $btns = $(".bg-switch .bg");
             $btns.click(function (e) {
                 e.preventDefault();
