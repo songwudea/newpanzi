@@ -246,7 +246,7 @@
             <div class="table-products section">
                 <div class="row head">
                     <div class="col-md-12">
-                        <h4>Products <small>Table sample</small></h4>
+                        <h4>网站栏目管理 <small>栏目列表</small></h4>
                     </div>
                 </div>
 
@@ -254,13 +254,13 @@
                     <div class="col-md-8 col-md-offset-5">
                         <div class="ui-select">
                             <select>
-                              <option>Filter users</option>
-                              <option>Signed last 30 days</option>
-                              <option>Active users</option>
+                              <option>过滤条件</option>
+                              <option>最近三十天</option>
+                              <option>最近一周</option>
                             </select>
                         </div>
                         <input type="text" class="search">
-                        <a class="btn-flat new-product">+ Add product</a>
+                        <a class="btn-flat new-product">+ 增加顶级栏目</a>
                     </div>
                 </div>
 
