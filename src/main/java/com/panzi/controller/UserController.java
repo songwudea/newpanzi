@@ -2,6 +2,8 @@ package com.panzi.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +16,7 @@ import com.panzi.modules.User;
 @Controller
 public class UserController {
 	
-	//private static final Log log = LogFactory.getLog(UserController.class);
+	private static final Log log = LogFactory.getLog(UserController.class);
 	
 	@RequestMapping(value="admin/login.html",method = RequestMethod.GET)
 	public String indexLogin(){   
@@ -36,6 +38,7 @@ public class UserController {
 				bs.setUsername(user.getUsername());
 				bs.setPassword(user.getPassword());
 				request.getSession().setAttribute(Constants.BACK_EMPLOYEE_SESSION,bs);
+				log.info("登录成功...");
 				return "redirect:index.html";
 			}else{
 				return "redirect:login.html";
@@ -45,6 +48,18 @@ public class UserController {
 		
 	}
 	
+	
+	/**
+	 * 注销用户登录
+	 * @param request
+	 * @param site
+	 * @return
+	 */
+	@RequestMapping(value = "admin/logout.html", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/admin/login.html";
+	}
 	
 
 }

@@ -29,8 +29,8 @@ import org.springframework.util.NumberUtils;
 
 import com.google.common.collect.Lists;
 import com.panzi.common.TransCodingUtils;
-import com.panzi.jdbc.sqlgenerator.metadata.Column;
-import com.panzi.jdbc.sqlgenerator.metadata.Table;
+import com.panzi.jdbc.sqlgenerator.Column;
+import com.panzi.jdbc.sqlgenerator.Table;
 import com.panzi.repository.PageRequest.Sort;
 
 public abstract class JdbcEntityDao<T, ID extends Number> extends JdbcDaoSupport{

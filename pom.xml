@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.panzi</groupId>
   <artifactId>panzi</artifactId>
@@ -11,7 +11,7 @@
   
   
   	<properties>
-  		<springVersion>3.2.5.RELEASE</springVersion>
+  		<springVersion>3.1.0.RELEASE</springVersion>
 	    <jetty.version>6.1.25</jetty.version>  
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<javamail.version>1.4.1</javamail.version>
@@ -28,6 +28,34 @@
           <version>1.1.2</version>  
           <type>jar</type>  
       </dependency>  
+      
+   		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>	
+		
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>			
   
 	  <dependency>
 	    <groupId>org.sitemesh</groupId>
@@ -100,8 +128,28 @@
 		<artifactId>commons-beanutils</artifactId>
 		<version>1.8.3</version>
 	</dependency>
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.1.36</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>3.0.5.RELEASE</version>
+	</dependency>
   </dependencies>
   <build>
+  
+ 	<sourceDirectory>src/main/java</sourceDirectory>
+	<resources>
+		<resource>
+			<directory>src/main/resources</directory>
+		</resource>
+	</resources>
+	<outputDirectory>src/main/webapps/WEB-INF/classes</outputDirectory>
+	<testOutputDirectory>src/main/webapps/WEB-INF/classes</testOutputDirectory>
+  
     <finalName>panzi</finalName>
     <!--jetty配置-->
    <plugins>
@@ -151,12 +199,28 @@
 				<attach>true</attach>
 			</configuration>
 			<executions>
-				<execution>
+	<!-- 			<execution>
 					<phase>compile</phase>
 					<goals>
 						<goal>jar</goal>
 					</goals>
-				</execution>
+				</execution> -->
+				
+				<!-- <execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<excludeScope>provided</excludeScope>
+							<outputDirectory>${basedir}/src/main/webapps/WEB-INF/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				 -->
 			</executions>
 	</plugin> 	
   </plugins>
