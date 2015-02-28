@@ -1,4 +1,4 @@
-package com.panzi.jdbc.sqlgenerator;
+package com.panzi.jdbc.sqlgenerator.metadata;
 
 import java.util.ArrayList;
 import java.util.Arrays;

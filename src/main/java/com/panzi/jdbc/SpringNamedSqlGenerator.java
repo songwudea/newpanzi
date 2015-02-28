@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.panzi.jdbc.sqlgenerator.Column;
-import com.panzi.jdbc.sqlgenerator.Table;
+import com.panzi.jdbc.sqlgenerator.metadata.Column;
+import com.panzi.jdbc.sqlgenerator.metadata.Table;
 
 public class SpringNamedSqlGenerator implements SqlGenerator {
 

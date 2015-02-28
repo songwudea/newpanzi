@@ -1,4 +1,4 @@
-package com.panzi.jdbc.sqlgenerator;
+package com.panzi.jdbc.sqlgenerator.metadata;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

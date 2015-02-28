@@ -1,6 +1,6 @@
 package com.panzi.jdbc;
 
-import com.panzi.jdbc.sqlgenerator.Table;
+import com.panzi.jdbc.sqlgenerator.metadata.Table;
 
 
 public interface SqlGenerator {
