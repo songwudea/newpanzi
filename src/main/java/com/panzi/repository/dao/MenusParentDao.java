@@ -2,6 +2,8 @@ package com.panzi.repository.dao;
 
 import java.util.List;
 
+
+
 import org.springframework.stereotype.Repository;
 
 import com.panzi.modules.MenusParent;
@@ -10,7 +12,7 @@ import com.panzi.repository.JdbcEntityDao;
 
 @Repository
 @EntityDao(Table = "menus_parent")
-public class MenusParentDao  extends JdbcEntityDao<MenusParent, Integer>{
+public class MenusParentDao extends JdbcEntityDao<MenusParent, Integer>{
 
 	/**
 	 * 获取所有父级菜单
