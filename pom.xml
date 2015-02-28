@@ -162,8 +162,8 @@
 					<classesDirectory>target/classes</classesDirectory>
 					<!-- This parameter will auto-deploy modified classes -->
 					<scanIntervalSeconds>5</scanIntervalSeconds>
-					<webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
-					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<webAppSourceDirectory>src/main/webapps</webAppSourceDirectory>
+					<webXml>src/main/webapps/WEB-INF/web.xml</webXml>
 					<webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
