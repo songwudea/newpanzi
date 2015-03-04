@@ -1,0 +1,21 @@
+﻿@charset utf-8;
+*{margin:0 auto;padding:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{font:12px/1.5em "Microsoft YaHei",Tahoma,Arial,STHeiti,sans-serif;color:#000;}
+html{width:100%;height:100%;}
+img{border:none;}
+ul,ol,li{list-style:none outside none;padding:0;margin:0;}
+a{text-decoration:none;color:#4e555a;}
+a:hover{text-decoration:none;}
+.bg68comad,.focus,.focus ul,.focus ul li,.banclj a{height:450px;overflow:hidden;}
+.focus{width:100%;overflow:hidden;position:relative;}
+.focus ul{position:absolute;list-style:none;margin:0px;padding:0px;}
+.focus ul li{float:left;width:100%;overflow:hidden;position:relative;background:#000;list-style:none;margin:0px;padding:0px;}
+.banclj a{width:800px;display:block;}
+.focus .btnBg{position:absolute;width:100%;height:20px;left:0;bottom:0;background:#000;display:none;}
+.focus .btn{height:25px;position:absolute;right:10px;bottom:8px;text-align:right;width:550px;display:none;}
+.focus .btn span{color:#FFFFFF;cursor:pointer;display:inline-block;font:28px/22px tahoma,Arial,Simsun;height:25px;margin-left:7px;text-align:center;}
+.focus .btn span.on{color:#CC0000;cursor:default;}
+.focus .preNext{width:45px;height:100px;position:absolute;top:200px;background:url(sprite.png) no-repeat 0 0;cursor:pointer;}
+.focus .pre{left:200px;}
+.focus .next{right:200px;background-position:right top;}
