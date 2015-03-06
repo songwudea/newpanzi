@@ -10,7 +10,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	
     <!-- bootstrap -->
-    <link href="${ctx}/web-resource/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="${ctx}/web-resource/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
     <!-- libraries -->
     <link href="${ctx}/web-resource/css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
@@ -320,7 +320,7 @@
 
 
 	<!-- scripts -->
-    <script src="${ctx}/web-resource/js/jquery-1.8.2.min.js"></script>
+    <script src="${ctx}/web-resource/js/jquery-1.11.2.min.js"></script>
     <script src="${ctx}/web-resource/js/bootstrap.min.js"></script>
     <script src="${ctx}/web-resource/js/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="${ctx}/web-resource/js/theme.js"></script>
