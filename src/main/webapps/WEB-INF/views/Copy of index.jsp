@@ -18,8 +18,6 @@
 
     <!-- global styles -->
     <link rel="stylesheet" type="text/css" href="${ctx}/web-resource/css/compiled/layout.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/web-resource/css/compiled/elements.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/web-resource/css/compiled/icons.css">
 
     <!-- this page specific styles -->
     <link rel="stylesheet" href="${ctx}/web-resource/css/compiled/index.css" type="text/css" media="screen" />
@@ -229,7 +227,11 @@
 
 	<!-- main container -->
     <div class="content">
+
         <div id="pad-wrapper">
+
+            <!-- table sample -->
+            <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
             <div class="table-products section">
                 <div class="row head">
                     <div class="col-md-12">
@@ -238,20 +240,25 @@
                 </div>
 
                 <div class="row filter-block">
-                    <div class="col-md-3 col-md-offset-5">
-						<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
-						  增加顶级栏目
-						</button>
+                    <div class="col-md-8 col-md-offset-5">
+                        <div class="ui-select">
+                            <select>
+                              <option>过滤条件</option>
+                              <option>最近三十天</option>
+                              <option>最近一周</option>
+                            </select>
+                        </div>
+                        <input type="text" class="search">
+                        <a class="btn-flat new-product">增加顶级栏目</a>
                     </div>
                 </div>
 
                 <div class="row">
-                    <table class="table table-hover">
+                    <table class="table table-bordered table-striped table_vamen" id="keyword">
                         <thead>
                             <tr>
                                 <th class="col-md-9">
-                                    <input type="checkbox">
-                                    	标题
+                                    <input type="checkbox">标题
                                 </th>
                                  <th class="col-md-1">
                                     <span class="line"></span>操作
@@ -260,69 +267,84 @@
                         </thead>
                         <tbody>
                             <!-- row -->
-                            <c:forEach var ="allParentMenus" items="${allParentMenus}" varStatus="state">
-                            <tr class="first">
-                                <td>
-                                    <input type="checkbox">
-                                    <div class="img">
-                                        <img src="${ctx}/web-resource/img/table-img.png">
-                                    </div>
-                                    <a href="#">
-                                    	${allParentMenus.name}
-                                     </a>
-                                </td>
-                                <td>
-                                    <ul class="actions">
-                                        <li><i class="table-edit"></i></span></li>
-                                        <li><i class="table-settings"></i></li>
-                                        <li class="last"><i class="table-delete"></i></li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            
-                            </c:forEach>
+                            <%-- <c:forEach var ="allParentMenus" items="${allParentMenus}" varStatus="state">
+	                            <tr class="first">
+	                                <td>
+	                                    <input type="checkbox">
+	                                    <div class="img">
+	                                        <img src="${ctx}/web-resource/img/table-img.png">
+	                                    </div>
+	                                    <a href="#">${allParentMenus.name}</a>
+	                                </td>
+	                                <td>
+	                                    <ul class="actions">
+	                                        <li><i class="table-edit"></i></span></li>
+	                                        <li><i class="table-settings"></i></li>
+	                                        <li class="last"><i class="table-delete"></i></li>
+	                                    </ul>
+	                                </td>
+	                            </tr>
+                            </c:forEach> --%>
                             <!-- row -->
-                            
                         </tbody>
                     </table>
                 </div>
-                <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
             </div>
             <!-- end table sample -->
         </div>
     </div>
 
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">标题</h4>
-		      </div>
-		      <div class="modal-body">
-		       		哈哈......
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		        <button type="button" class="btn btn-primary">保存</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-
 
 	<!-- scripts -->
     <script src="${ctx}/web-resource/js/jquery-1.8.2.min.js"></script>
     <script src="${ctx}/web-resource/js/bootstrap.min.js"></script>
-    <script src="${ctx}/web-resource/js/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="${ctx}/web-resource/js/theme.js"></script>
+    <script>
+		$(document).ready(function() {
+				$('#keyword').dataTable({
+					sDom: "<'row'<'span6'<'dt_actions'>l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+					bFilter: false,
+					sPaginationType: "bootstrap",  
+					bProcessing: true,
+					bServerSide: true,
+					sAjaxSource: "${ctx}/admin/menu/index.html",
+					sServerMethod: "POST",
+					iDisplayLength: 10,
+					fnServerData: function (sSource, aoData, fnCallback) {
+						aoData.push({name:"userId",value:"${address.userId}"});
+						$.ajax({
+							"dataType": "json",
+							"type": "POST",
+							"url": sSource,
+							"data": aoData,
+							"success": fnCallback
+						});
+					},
+					aoColumnDefs: [
+				    ],
+				    aoColumns: [
+                        { sName:"name", mDataProp: "name", sDefaultContent:""},
+                        { sName:"",
+                          bSortable: false ,
+                          mData: null, 
+                          fnRender:function(oObj){
+	                          var id = oObj.aData['id'];
+						      url = "<a href=\"javascript:if(confirm('确认删除？'))window.location.href='${ctx}/role/dele.html?id="+ id + "'\">[删除]</a>";
+	                          return url;
+                          }
+                        } 
+                    ],
+				    oLanguage:{
+				    	sProcessing: "正在加载中......",
+				    	sLengthMenu: "每页显示 _MENU_ 条记录",
+				    	sZeroRecords: "对不起，查询不到相关数据！",
+                    	sEmptyTable: "表中无数据存在！",
+                    	sInfo: "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+                    	sInfoFiltered: "数据表中共为 _MAX_ 条记录"
+				    }
+				});
+				$('.dt_actions').html($('.dt_gal_actions').html());
+			});
+		</script>
 	</body>
 </html>

@@ -1,11 +1,10 @@
 package com.panzi.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.panzi.modules.MenusParent;
+import com.panzi.repository.Page;
 import com.panzi.repository.dao.MenusParentDao;
 
 
@@ -20,9 +19,8 @@ public class MenusParentService {
 	 * 获取所有父级菜单
 	 * @return
 	 */
-	public List<MenusParent> findAllMenus() {
-		List<MenusParent> findParentMenus = menusParentDao.findParentMenus();
-		return findParentMenus;
+	public Page<MenusParent> findAllMenus(Page<MenusParent> pageMenu,MenusParent menusParent) {
+		return menusParentDao.findParentMenus(pageMenu,menusParent);
 	}
 	
 	

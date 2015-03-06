@@ -19,6 +19,7 @@
 
 
 	<import resource="classpath:spring/spring-manager.xml" />	
+	<import resource="classpath:spring/spring-repository.xml" />
 	<!--拦截器,后面会加上的 -->
 	<!-- <import resource="classpath:spring/spring-interceptor.xml" /> -->
 </beans>
